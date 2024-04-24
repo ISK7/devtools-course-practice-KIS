@@ -51,6 +51,7 @@ bld/
 [Bb]uild/
 cmake-build-*/
 dashboard/
+build/
 
 # IDE (Editors)
 .idea/
