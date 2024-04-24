@@ -67,13 +67,11 @@ bool ConwaysGameOfLifeApplication::setNewField(int argc, const char** argv) {
     int width = 0;
     dataErrorNumber = 0;
     try {
-        char* endH;
-        char* endW;
         const char* numberHeight = argv[1];
         const char* numberWidth = argv[2];
         height = charToInt(numberHeight);
         width = charToInt(numberWidth);
-        if (numberOfGenerations < 0 || endH[0] || endW[0]) dataErrorNumber = 2;
+        if (numberOfGenerations < 0) dataErrorNumber = 2;
     }
     catch (...) {
         dataErrorNumber = 1;
@@ -91,8 +89,6 @@ bool ConwaysGameOfLifeApplication::setNewField(int argc, const char** argv) {
         if (dataErrorNumber == 0) {
             try {
                 for (int i = 4; i < argc - 1; i += 2) {
-                    char* endX;
-                    char* endY;
                     int x = charToInt(argv[i]);
                     int y = charToInt(argv[i + 1]);
                     game.setCellState(x, y, true);
