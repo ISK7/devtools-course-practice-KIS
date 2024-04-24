@@ -8,6 +8,7 @@
 
 class ConwaysGameOfLifeApplication {
  private:
+    int charToInt(const char* arg);
     int numberOfGenerations;
     int dataErrorNumber;
     ConwaysGameOfLife game;

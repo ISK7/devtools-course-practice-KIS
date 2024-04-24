@@ -18,10 +18,9 @@ ConwaysGameOfLifeApplication::ConwaysGameOfLifeApplication(int argc,
         return;
     }
     try {
-        char* end;
         const char* numberString = argv[3];
-        numberOfGenerations = strtoi64(numberString, &end, 0);
-        if (numberOfGenerations < 0 || end[0]) dataErrorNumber = 2;
+        numberOfGenerations = charToInt(numberString);
+        if (numberOfGenerations < 0) dataErrorNumber = 2;
     }
     catch (...) {
         dataErrorNumber = 2;
@@ -72,8 +71,8 @@ bool ConwaysGameOfLifeApplication::setNewField(int argc, const char** argv) {
         char* endW;
         const char* numberHeight = argv[1];
         const char* numberWidth = argv[2];
-        height = strtoi64(numberHeight, &endH, 0);
-        width = strtoi64(numberWidth, &endW, 0);
+        height = charToInt(numberHeight);
+        width = charToInt(numberWidth);
         if (numberOfGenerations < 0 || endH[0] || endW[0]) dataErrorNumber = 2;
     }
     catch (...) {
@@ -94,8 +93,8 @@ bool ConwaysGameOfLifeApplication::setNewField(int argc, const char** argv) {
                 for (int i = 4; i < argc - 1; i += 2) {
                     char* endX;
                     char* endY;
-                    int x = strtoi64(argv[i], &endX, 0);
-                    int y = strtoi64(argv[i + 1], &endY, 0);
+                    int x = charToInt(argv[i]);
+                    int y = charToInt(argv[i + 1]);
                     game.setCellState(x, y, true);
                 }
             }
@@ -107,4 +106,14 @@ bool ConwaysGameOfLifeApplication::setNewField(int argc, const char** argv) {
     }
     game = ConwaysGameOfLife(newGame);
     return true;
+}
+
+int ConwaysGameOfLifeApplication::charToInt(const char* arg) {
+    int ans = 0;
+    const char* ptr = arg;
+    while (*ptr != '\0') {
+        ans = ans * 10 + (*ptr - '0');
+        ++ptr;
+    }
+    return ans;
 }
