@@ -80,6 +80,10 @@ bool ConwaysGameOfLifeApplication::setNewField(int argc, const char** argv) {
     ConwaysGameOfLife newGame = ConwaysGameOfLife(1, 1);
     if (dataErrorNumber == 0) {
         try {
+            if (height < 0 || width < 0) {
+                dataErrorNumber = 3;
+                return false;
+            }
             newGame = ConwaysGameOfLife(height, width);
         }
         catch (...) {
@@ -107,9 +111,15 @@ bool ConwaysGameOfLifeApplication::setNewField(int argc, const char** argv) {
 int ConwaysGameOfLifeApplication::charToInt(const char* arg) {
     int ans = 0;
     const char* ptr = arg;
+    bool isNegaive = false;
+    if (*ptr == '-') {
+        ptr++;
+        isNegaive = true;
+    }
     while (*ptr != '\0') {
         ans = ans * 10 + (*ptr - '0');
         ++ptr;
     }
+    if (isNegaive) ans *= -1;
     return ans;
 }
