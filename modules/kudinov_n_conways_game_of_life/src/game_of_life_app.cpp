@@ -4,10 +4,18 @@
 
 #include <exception>
 
-ConwaysGameOfLifeApplication::ConwaysGameOfLifeApplication(int argc, const char** argv) : game(1,1) {
+ConwaysGameOfLifeApplication::ConwaysGameOfLifeApplication(int argc, const char** argv) : game(1, 1) {
     dataErrorNumber = 0;
-    if(argc < 4 || argc % 2 == 1) dataErrorNumber = 1;
-    if(argc == 1) dataErrorNumber = -1;
+    appName = argv[0];
+    numberOfGenerations = 0;
+    if (argc == 1) {
+        dataErrorNumber = -1;
+        return;
+    }
+    if (argc < 4 || argc % 2 == 1) {
+        dataErrorNumber = 1;
+        return;
+    }
     try {
         char* end;
         const char* numberString = argv[3];
@@ -17,7 +25,6 @@ ConwaysGameOfLifeApplication::ConwaysGameOfLifeApplication(int argc, const char*
     catch (...) {
         dataErrorNumber = 2;
     }
-    appName = argv[0];
     setNewField(argc, argv);
 }
 
