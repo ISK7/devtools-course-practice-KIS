@@ -4,7 +4,8 @@
 
 #include <exception>
 
-ConwaysGameOfLifeApplication::ConwaysGameOfLifeApplication(int argc, const char** argv) : game(1, 1) {
+ConwaysGameOfLifeApplication::ConwaysGameOfLifeApplication(int argc,
+    const char** argv) : game(1, 1) {
     dataErrorNumber = 0;
     appName = argv[0];
     numberOfGenerations = 0;
@@ -29,10 +30,9 @@ ConwaysGameOfLifeApplication::ConwaysGameOfLifeApplication(int argc, const char*
 }
 
 std::string ConwaysGameOfLifeApplication::doWork() {
-    switch (dataErrorNumber)
-    {
+    switch (dataErrorNumber) {
     case -1:
-        return "This is application for Conway's game of life.\n" + 
+        return "This is application for Conway's game of life.\n" +
             std::string("Pleace, enter height and width of field, number of ") +
             "generations and living points";
         break;
@@ -80,7 +80,7 @@ bool ConwaysGameOfLifeApplication::setNewField(int argc, const char** argv) {
         dataErrorNumber = 1;
         return false;
     }
-    ConwaysGameOfLife newGame = ConwaysGameOfLife(1,1);
+    ConwaysGameOfLife newGame = ConwaysGameOfLife(1, 1);
     if (dataErrorNumber == 0) {
         try {
             newGame = ConwaysGameOfLife(height, width);
