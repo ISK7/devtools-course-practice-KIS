@@ -20,7 +20,7 @@ ConwaysGameOfLifeApplication::ConwaysGameOfLifeApplication(int argc,
     try {
         char* end;
         const char* numberString = argv[3];
-        numberOfGenerations = _strtoi64(numberString, &end, 0);
+        numberOfGenerations = strtoi64(numberString, &end, 0);
         if (numberOfGenerations < 0 || end[0]) dataErrorNumber = 2;
     }
     catch (...) {
@@ -72,8 +72,8 @@ bool ConwaysGameOfLifeApplication::setNewField(int argc, const char** argv) {
         char* endW;
         const char* numberHeight = argv[1];
         const char* numberWidth = argv[2];
-        height = _strtoi64(numberHeight, &endH, 0);
-        width = _strtoi64(numberWidth, &endW, 0);
+        height = strtoi64(numberHeight, &endH, 0);
+        width = strtoi64(numberWidth, &endW, 0);
         if (numberOfGenerations < 0 || endH[0] || endW[0]) dataErrorNumber = 2;
     }
     catch (...) {
@@ -94,8 +94,8 @@ bool ConwaysGameOfLifeApplication::setNewField(int argc, const char** argv) {
                 for (int i = 4; i < argc - 1; i += 2) {
                     char* endX;
                     char* endY;
-                    int x = _strtoi64(argv[i], &endX, 0);
-                    int y = _strtoi64(argv[i + 1], &endY, 0);
+                    int x = strtoi64(argv[i], &endX, 0);
+                    int y = strtoi64(argv[i + 1], &endY, 0);
                     game.setCellState(x, y, true);
                 }
             }
