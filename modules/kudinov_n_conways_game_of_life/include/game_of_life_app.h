@@ -1,9 +1,9 @@
 // Copyright 2024 Kiselev Igor
 
-#ifndef MODULES_KISELEV_I_CONWAYS_GAME_OF_LIFE_APP_INCLUDE_CONWAYS_GAME_OF_LIFE_APP_H_
-#define MODULES_KISELEV_I_CONWAYS_GAME_OF_LIFE_APP_INCLUDE_CONWAYS_GAME_OF_LIFE_APP_H_
+#ifndef MODULES_KUDINOV_N_CONWAYS_GAME_OF_LIFE_INCLUDE_GAME_OF_LIFE_APP_H_
+#define MODULES_KUDINOV_N_CONWAYS_GAME_OF_LIFE_INCLUDE_GAME_OF_LIFE_APP_H_
 
-
+#include <string>
 #include "../include/conways_game_of_life.h"
 
 class ConwaysGameOfLifeApplication {
@@ -20,4 +20,4 @@ class ConwaysGameOfLifeApplication {
     bool setNewField(int argc, const char** argv);
 };
 
-#endif //MODULES_KISELEV_I_CONWAYS_GAME_OF_LIFE_APP_INCLUDE_CONWAYS_GAME_OF_LIFE_APP_H_
+#endif  // MODULES_KUDINOV_N_CONWAYS_GAME_OF_LIFE_INCLUDE_GAME_OF_LIFE_APP_H_
