@@ -15,7 +15,7 @@ add_test(
     NAME ${prefix}_Calls_help
     COMMAND ${APPLICATION}  
 )
-set_tests_properties (${prefix}_Filter_not_enough_arguments PROPERTIES
+set_tests_properties (${prefix}_Calls_help PROPERTIES
     PASS_REGULAR_EXPRESSION "This is application for Conway's game of life."
     LABELS "${MODULE}")
 
